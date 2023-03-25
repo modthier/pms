@@ -1,0 +1,84 @@
+else {
+            
+           if ($drug->stocks()->count() > 0) {
+
+                DB::beginTransaction();
+                try {
+                    
+                    $reduce = 0;
+                    $price = 0.0;
+                    $fix_pst = 20;
+                    $pst_value = 0.0;
+
+                    
+
+                   $results = DB::table('stock as s')
+                 
+                           ->leftJoin('drugs as d','s.drug_id','=','d.id')
+                           ->leftJoin('purchase_order as po' , 'po.stock_id' , '=' , 's.id')
+                           ->where('quantity_per_unit' ,'>' , 0)
+                           ->where('d.id' , '=' , $drug->id)->get();
+                 
+                    
+                    foreach ($results as $result) {
+                       $new_quantity_per_unit = 0;
+                       
+                       $quantity = $result->count_per_unit * $result->quantity;
+                       $current_quantity = $result->quantity_per_unit;
+
+                       $reduce = $quantity - $current_quantity;
+                    
+                       $new_quantity_per_unit = 
+                           $request->count_per_unit * $result->quantity - $reduce;
+
+                        
+                      
+
+                       $price = $result->total_price / $result->quantity;
+                       $pst_value = ($fix_pst/100) * $price;
+                       $selling_price = ($price+$pst_value)/$request->count_per_unit;
+                       $purchasing_price = $price/$request->count_per_unit;
+
+                       $stock = Stock::findOrFail($result->stock_id);
+                       $stock->update([
+                            'selling_price' => $selling_price,
+                            'purchasing_price' => $purchasing_price,
+                            'quantity_per_unit' => $new_quantity_per_unit
+                       ]);
+                    }
+
+                    $drug->trade_name = $request->trade_name;
+                    $drug->generic_name = $request->generic_name;
+                    $drug->drugItemType()->associate($request->item_type_id);
+                    $drug->drugUnit()->associate($request->unit_id);
+                    $drug->company()->associate($request->company_id);
+                    $drug->medicalRep()->associate($request->md_rep_id);
+                    $drug->count_per_unit = $request->count_per_unit;
+
+                    $drug->save();
+
+                    DB::commit();
+                    $request->session()->flash('success','Drug  has been Updated');
+                    return redirect()->route('drugs.edit',$drug->id);
+                } catch (Exception $e) {
+                    DB::rollBack();
+                    $request->session()->flash('error','Something Wrong Happend');
+                    return redirect()->route('drugs.edit',$drug->id);
+                } 
+           }// check if stock exiest for this drug
+           
+           else {
+             $drug->trade_name = $request->trade_name;
+             $drug->generic_name = $request->generic_name;
+             $drug->drugItemType()->associate($request->item_type_id);
+             $drug->drugUnit()->associate($request->unit_id);
+             $drug->company()->associate($request->company_id);
+             $drug->medicalRep()->associate($request->md_rep_id);
+             $drug->count_per_unit = $request->count_per_unit;
+
+             $drug->save();
+             $request->session()->flash('success','Drug  has been Updated');
+             return redirect()->route('drugs.edit',$drug->id);
+           }
+
+        }// else block ends here

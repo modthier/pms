@@ -1,0 +1,4 @@
+SELECT o.stock_id , d.trade_name , d.generic_name , count(d.trade_name) FROM
+drug_orders o inner JOIN stock s on o.stock_id = s.id
+INNER JOIN drugs d on d.id = s.drug_id
+GROUP by o.stock_id
