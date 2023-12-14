@@ -36,16 +36,16 @@ class DrugRequestController extends Controller
         $role = $user->role_id;
         $today = Carbon::today();
         if ($role == 1) {
-            $orders = OrderRequest::orderBy('id','desc')->where('is_insured' ,'=', 0)->paginate(20);
-            $total_today = DB::table('order_request')->whereDate('created_at',$today)->where('is_insured' ,'=', 0)->sum('total_price');
+            $orders = OrderRequest::orderBy('id','desc')->paginate(20);
+            $total_today = DB::table('order_request')->whereDate('created_at',$today)->sum('total_price');
             //$inc_total_today = DB::table('insurance_order_request')->whereDate('created_at',$today)->sum('deduct_value');
         }else {
             
-            $orders = OrderRequest::where('user_id',Auth::id())->where('is_insured' ,'=', 0)->orderBy('id','desc')->paginate(20);
+            $orders = OrderRequest::where('user_id',Auth::id())->orderBy('id','desc')->paginate(20);
             $total_today = DB::table('order_request')
                 ->where('user_id',Auth::id())
                 ->whereDate('created_at',$today)
-                ->where('is_insured' ,'=', 0)
+                
                 ->sum('total_price');
 
             // $inc_total_today = DB::table('insurance_order_request as inc')
@@ -58,18 +58,18 @@ class DrugRequestController extends Controller
 
         
 
-        $total = DB::table('order_request')->where('is_insured' ,'=', 0)->sum('total_price');
+        $total = DB::table('order_request')->sum('total_price');
         //$inc_total = DB::table('insurance_order_request')->sum('deduct_value');
 
         
-        $total_week = DB::table('order_request')->where('is_insured' ,'=', 0)
+        $total_week = DB::table('order_request')
         ->whereBetween('created_at',[Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])->sum('total_price');
 
         // $inc_total_week = DB::table('insurance_order_request')
         //               ->whereBetween('created_at',[Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])
         //               ->sum('deduct_value');
 
-        $total_month = DB::table('order_request')->where('is_insured' ,'=', 0)
+        $total_month = DB::table('order_request')
                       ->whereBetween('created_at',[Carbon::now()->startOfMonth(),Carbon::now()->endOfMonth()])
                       ->sum('total_price');
 
@@ -82,7 +82,6 @@ class DrugRequestController extends Controller
                     ->leftJoin('payment_methods as p','p.id','o.paymentMethod_id')
                     ->groupBy('o.paymentMethod_id')
                     ->whereDate('o.created_at',$today)
-                    ->where('is_insured' ,'=', 0)
                     ->get();
 
         

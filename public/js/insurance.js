@@ -41,7 +41,7 @@ $(document).ready(function () {
 									calulate_total_deduct();
 									calc();
 									$('#barcode').val('');
-							   }else { // when the item allready in the lisr
+							   }else { // when the item already in the list
 									var quantity = parseFloat($('#qu'+result.id).val());
 									var new_q = quantity + 1;
 									$('#qu'+result.id).val(new_q);
@@ -112,6 +112,7 @@ $(document).ready(function () {
 				method:"post",
 				data:{stockId:stockId,pst:pst,insurance_id:insurance_id,_token:_token},
 				success:function (result) {
+					console.log(result.added_value);
 					$('.order_list').append(result.data);
 
 					calulate_total_deduct();

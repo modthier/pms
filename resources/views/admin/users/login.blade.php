@@ -1,4 +1,4 @@
-@extends('admin.login')
+@extends('admin.layouts.sneat')
 
 @section('content')
 

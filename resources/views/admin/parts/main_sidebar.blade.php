@@ -204,7 +204,7 @@
                 @can('can_access')
                  <a href="{{ route('DrugRequests.mostSold') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>{{ __('body.mostSold') }}</p>
+                  <p></p>
                 </a>
 
 
@@ -319,7 +319,7 @@
                     <i class="far fa-circle nav-icon"></i>
                     <p>{{ __('body.paymentMethods') }}</p>
                 </a>
-
+[
                 <a href="{{ route('item.index') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Expense Items</p>
@@ -327,7 +327,7 @@
 
                 <a href="{{ route('backup.index') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Expense Items</p>
+                    <p>Backup</p>
                 </a>
 
                 

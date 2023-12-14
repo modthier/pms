@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.layouts.sneat')
 
 @section('starter')
     <div class="content-header">
@@ -7,12 +7,7 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">{{ __('body.allDrugs') }}</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">{{ __('body.allDrugs') }}</li>
-            </ol>
-          </div><!-- /.col -->
+         
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -87,7 +82,7 @@
                     @endif
                     <td>
                       @can('can_show')
-                      <a href="{{ route('drugs.edit',$drug->id) }}" class="btn btn-success float-left mr-1">{{ __('body.edit') }}</a>
+                      <a href="{{ route('drugs.edit',$drug->id) }}" class="btn btn-success float-left mr-1"><span class="fas fa-edit"></span></a>
                       @endcan
 
                       @can('can_show')
@@ -102,7 +97,7 @@
                                   {{ method_field('DELETE') }}
                                   <button class="btn btn-danger" onclick="event.preventDefault();
                                       var r = confirm('are you sure ?');
-                                      if (r == true) {document.getElementById('delete_drug_{{ $drug->id }}').submit();}">{{ __('body.delete') }}</button>
+                                      if (r == true) {document.getElementById('delete_drug_{{ $drug->id }}').submit();}"><span class="fas fa-trash-alt"></span></button>
                   
                             </form>   
                         

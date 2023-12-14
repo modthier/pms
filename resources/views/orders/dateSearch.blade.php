@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.layouts.sneat')
 
 @section('starter')
     <div class="content-header">
@@ -10,12 +10,7 @@
               (From {{ $date_from  }} To {{ $date_to }} )
             </h1>
           </div><!-- /.col -->
-          <div class="col-sm-4">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">Sales Report</li>
-            </ol>
-          </div><!-- /.col -->
+          
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -119,11 +114,11 @@
                     <td>{{ $result->created_at->format('Y-m-d') }}</td>
                     <td>
                      
-                      <a href="{{ route('DrugRequests.show',$result->id) }}" class="btn btn-success float-left mr-1">{{ __('body.details') }}</a>
+                      <a href="{{ route('DrugRequests.show',$result->id) }}" class="btn btn-success float-left mr-1"><span class="fas fa-book-open"></span></a>
                       
 
                       
-                      <a href="{{ route('DrugRequests.edit',$result->id)  }}" class="btn btn-primary float-left mr-1">Edit</a>
+                      <a href="{{ route('DrugRequests.edit',$result->id)  }}" class="btn btn-primary float-left mr-1"><span class="fas fa-edit"></span></a>
                      
 
                       @can('can_show')
@@ -133,12 +128,12 @@
 
                         {{ method_field('DELETE') }}
 
-                         <button type="submit" class="btn btn-danger" onclick="return confirm('are you sure ?')">{{ __('body.delete') }}</button>
+                         <button type="submit" class="btn btn-danger" onclick="return confirm('are you sure ?')"><span class="fas fa-trash-alt"></span></button>
                       </form>
                       @endcan
 
 
-                       <a href="{{ route('ReturnedItems.returnOrder',$result->id)  }}" class="btn btn-warning float-left mr-1">Return Order</a>
+                       <a href="{{ route('ReturnedItems.returnOrder',$result->id)  }}" class="btn btn-warning float-left mr-1"><span class="fas fa-arrow-circle-left"></span></a>
                       
 
                     </td>

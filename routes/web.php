@@ -62,8 +62,9 @@ Route::get('/expired','DrugsController@expired')->name('drugs.expired');
 
 Route::get('returnOrder/{DrugRequest}','ReturnedItemsController@returnOrder')
  		  ->name('ReturnedItems.returnOrder');
-
+		   Route::get('returnItemInc/{DrugRequest}','ReturnedItemsController@returnInc')->name('ReturnedItems.returnInc');
  Route::get('returnItem/{DrugRequest}','ReturnedItemsController@returnItem')->name('ReturnedItems.returnItem');
+ 
 
  Route::get('drugs/search','DrugsController@search')->name('drugs.search');
  Route::get('drugs','DrugsController@index')->name('drugs.index');

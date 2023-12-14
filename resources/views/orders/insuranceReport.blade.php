@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.layouts.sneat')
 
 @section('starter')
     <div class="content-header">
@@ -144,11 +144,11 @@
                     <td>{{ $order->created_at }}</td>
                     <td>
                      
-                      <a href="{{ route('insurancePointOfSale.show',$order->id) }}" class="btn btn-success float-left mr-1 mb-1">{{ __('body.details') }}</a>
+                      <a href="{{ route('insurancePointOfSale.show',$order->id) }}" class="btn btn-success float-left mr-1 mb-1"><span class="fas fa-book-open"></span></a>
                       
 
                       
-                      <a href="{{ route('DrugRequests.edit',$order->id)  }}" class="btn btn-primary float-left mr-1 mb-1">{{ __('body.edit') }}</a>
+                      <a href="{{ route('DrugRequests.edit',$order->id)  }}" class="btn btn-primary float-left mr-1 mb-1"><span class="fas fa-edit"></span></a>
                      
 
                       @can('can_show')

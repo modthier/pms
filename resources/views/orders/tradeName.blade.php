@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.layouts.sneat')
 
 @section('starter')
     <div class="content-header">
@@ -7,12 +7,7 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Search By Trade Name</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">Search By Trade Name</li>
-            </ol>
-          </div><!-- /.col -->
+          
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -78,7 +73,7 @@
                     <td>{{ $result->created_at }}</td>
                     <td>
                      
-                      <a href="{{ route('DrugRequests.show',$result->id) }}" class="btn btn-success float-left mr-1">{{ __('body.details') }}</a>
+                      <a href="{{ route('DrugRequests.show',$result->id) }}" class="btn btn-success float-left mr-1"><span class="fas fa-book-open"></span></a>
                       
 
                     </td>

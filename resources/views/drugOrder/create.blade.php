@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.layouts.sneat')
 
 @section('starter')
     <div class="content-header">
@@ -7,12 +7,7 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">{{ __('body.pointOfSale') }}</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">{{ __('body.pointOfSale') }}</li>
-            </ol>
-          </div><!-- /.col -->
+         
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -65,7 +60,7 @@
              </div>
                
              <div class="form-group">
-              <button  id="addItemByName" type="button" class="btn btn-info">{{ __('body.addItem') }}</button>
+              <button  id="addItemByName" type="button" class="btn btn-info mt-2">{{ __('body.addItem') }}</button>
              </div>
             
           </form>  
@@ -85,7 +80,7 @@
   </section>
   @endif
 
- <section class="col-lg-12">
+ <section class="col-lg-12 mt-2">
     <div class="card">    
      
       <form action="{{ route('DrugOrders.store') }}" method="post">
@@ -94,7 +89,7 @@
         <div class="row p-3">
               
 
-              <div class="col-sm-6">
+              <div class="col-lg-12">
                   <div class="form-group">
                       <label>{{ __('body.paymentMethod') }}</label>
                       <select name="method_id" class="form-control select2" style="width: 100%;" required>

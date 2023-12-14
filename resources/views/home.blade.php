@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.layouts.sneat')
 
 @section('starter')
     <div class="content-header">
@@ -7,12 +7,7 @@
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">{{ __('body.dash') }}</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">{{ __('body.dash') }}</li>
-            </ol>
-          </div><!-- /.col -->
+          
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -23,30 +18,38 @@
 @endsection
 
 @section('content')
-	<div class="col-lg-12">
+	<div class="col-lg-12 mb-3">
 		<div class="row">
 			 <div class="col-lg-3 col-md-3 col-sm-12">
             <!-- small box -->
-        <div class="small-box bg-warning">
-          <div class="inner">
-            <h3>{{ $drugCount }}</h3>
+        <div class="card bg-warning">
+          <div class="card-body p-0">
+            <div class="small-box p-2">
+            <div class="inner">
+              <h3>{{ $drugCount }}</h3>
 
-            <p>{{ __('body.drugs') }}</p>
+              <p>{{ __('body.drugs') }}</p>
+            </div>
+            
+            </div>
           </div>
-          
         </div>
     </div>
 
     @can('can_show')
     <div class="col-lg-3 col-md-3 col-sm-12">
             <!-- small box -->
-        <div class="small-box bg-info">
-          <div class="inner">
-            <h3>{{ $staffCount }}</h3>
+        <div class="card bg-info">
+          <div class="card-body p-0">
+            <div class="small-box p-2">
+              <div class="inner">
+                <h3>{{ $staffCount }}</h3>
 
-            <p>{{ __('body.staff') }}</p>
+                <p>{{ __('body.staff') }}</p>
+              </div>
+              
+            </div>
           </div>
-          
         </div>
     </div>
     @endcan

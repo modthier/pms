@@ -39,6 +39,7 @@ class PointOfSaleInsuranceController extends Controller
             $insurance = InsuranceCompany::findOrFail($insurance_id);
             $price_value = $insurance->price_value;
             $pst = $request->get('pst');
+            $added_value = 0.0;
             $data = DB::table('stock as s')
                         ->select([
                           's.id', 'd.trade_name','s.selling_price','s.quantity_per_unit','s.exp',
@@ -68,11 +69,15 @@ class PointOfSaleInsuranceController extends Controller
                         </td>
             EOT;
               if ($price_value) {
-                $added_value = $row->selling_price - $row->insurance_selling_price ;
+                 
+                if($row->insurance_selling_price){
+                  $added_value = $row->selling_price - $row->insurance_selling_price ;
+                 }
+                
                 if($added_value > 0) {
                   $value = $added_value   + ($row->insurance_selling_price * ($pst/100)) ;
                 }else {
-                  $value = $row->insurance_selling_price * ($pst/100);
+                  $value = $row->selling_price * ($pst/100);
               }   
               $output .= <<<EOT
               <td>
@@ -167,6 +172,7 @@ class PointOfSaleInsuranceController extends Controller
        $insurance = InsuranceCompany::findOrFail($insurance_id);
        $price_value = $insurance->price_value;
        $pst = $request->get('pst');
+       $added_value = 0.0;
        $data = DB::table('stock as s')
                   ->select([
                     's.id', 'd.trade_name','s.selling_price','s.quantity_per_unit','s.exp',
@@ -195,11 +201,15 @@ class PointOfSaleInsuranceController extends Controller
                                 </td>
                     EOT;
                       if ($price_value) {
-                        $added_value = $row->selling_price - $row->insurance_selling_price ;
+                        
+                         if($row->insurance_selling_price){
+                          $added_value = $row->selling_price - $row->insurance_selling_price ;
+                         }
+                        
                         if($added_value > 0) {
                           $value = $added_value   + ($row->insurance_selling_price * ($pst/100)) ;
                         }else {
-                          $value = $row->insurance_selling_price * ($pst/100);
+                          $value = $row->selling_price * ($pst/100);
                       }   
                       $output .= <<<EOT
                       <td>
@@ -243,7 +253,8 @@ class PointOfSaleInsuranceController extends Controller
                   }
           
                   $result = [
-                           'data' => $output 
+                           'data' => $output ,
+                           'added_value' => $added_value
                           ];
           
                   return response()->json($result);
@@ -381,7 +392,7 @@ class PointOfSaleInsuranceController extends Controller
         $price_value = $company->price_value;
         
         
-        return view('patient.patient_order',['metaTitle' => trans('body.salesReportDetails')])
+        return view('orders.patient_order',['metaTitle' => trans('body.salesReportDetails')])
         ->with(['orders' => $orders , 'setting' => $setting , 'price_value' => $price_value]);
     }
     

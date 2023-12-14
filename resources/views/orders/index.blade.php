@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.layouts.sneat')
 
 @section('starter')
     <div class="content-header">
@@ -278,11 +278,11 @@
                     <td>{{ $order->created_at->format('d/m/Y h:i:s A') }}</td>
                     <td>
                      
-                      <a href="{{ route('DrugRequests.show',$order->id) }}" class="btn btn-success float-left mr-1 mb-1">{{ __('body.details') }}</a>
+                      <a href="{{ route('DrugRequests.show',$order->id) }}" class="btn btn-success float-left mr-1 mb-1"><span class="fas fa-book-open"></span></a>
                       
 
                       
-                      <a href="{{ route('DrugRequests.edit',$order->id)  }}" class="btn btn-primary float-left mr-1 mb-1">{{ __('body.edit') }}</a>
+                      <a href="{{ route('DrugRequests.edit',$order->id)  }}" class="btn btn-primary float-left mr-1 mb-1"><span class="fas fa-edit"></span></a>
                      
 
                       @can('can_show')
@@ -294,12 +294,12 @@
 
                          <button type="submit" class="btn btn-danger mb-1" onclick="event.preventDefault();
                                       var r = confirm('are you sure ?');
-                                      if (r == true) {document.getElementById('delete_order_{{ $order->id }}').submit();}">{{ __('body.delete') }}</button>
+                                      if (r == true) {document.getElementById('delete_order_{{ $order->id }}').submit();}"><span class="fas fa-trash-alt"></span></button>
                       </form>
                       @endcan
 
 
-                       <a href="{{ route('ReturnedItems.returnOrder',$order->id)  }}" class="btn btn-warning float-left mr-1 mb-1">Return Order</a>
+                       <a href="{{ route('ReturnedItems.returnOrder',$order->id)  }}" class="btn btn-warning float-left mr-1 mb-1"><span class="fas fa-arrow-circle-left"></span></a>
                       
 
                     </td>

@@ -117,70 +117,74 @@ class ReturnedItemsController extends Controller
         return redirect()->route('ReturnedItems.index');
     }
 
+    public function returnInc($id)
+   {
+       $drugOrder = DrugOrder::findOrFail($id);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $order = OrderRequest::findOrFail($drugOrder->order_request_id);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $stock = Stock::findOrFail($drugOrder->stock_id);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $soldItems =  $order->stock()->count();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        if ($soldItems > 1) {
+            
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+            $new_stock = $stock->quantity_per_unit + $drugOrder->quantity;
+              
+            $stock->update([
+              'quantity_per_unit' => $new_stock
+            ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+            $subTotal = $drugOrder->price;
+            $new_total = $order->total_price - $subTotal;
+            $total_items = $order->total_items - $drugOrder->quantity;
+            
+          
+
+            $order->update([
+                'total_price' => $new_total,
+                'total_items' => $total_items
+            ]);
+
+            
+            
+
+
+
+            $returned = new ReturnedItems();
+            $returned->stock_id = $stock->id;
+            $returned->user()->associate(Auth::id());
+            $returned->quantity_returned = $drugOrder->quantity;
+            $returned->save();
+
+            $drugOrder->delete();
+
+            return redirect()->route('insurancePointOfSale.show',$order->id);
+            
+        }else {
+
+            $new_stock = $stock->quantity_per_unit + $drugOrder->quantity;
+              
+            $stock->update([
+              'quantity_per_unit' => $new_stock
+            ]);
+
+
+            $returned = new ReturnedItems();
+            $returned->stock_id = $stock->id;
+            $returned->user()->associate(Auth::id());
+            $returned->quantity_returned = $drugOrder->quantity;
+            $returned->save();
+
+            $order->stock()->detach();
+            $order->patient()->detach();
+            $order->delete();
+
+            return redirect()->route('pos.InsuranceSalesReport');
+        }
+   }
+
+
+    
 }
