@@ -52,6 +52,18 @@ id="layout-navbar">
         <li>
           <div class="dropdown-divider"></div>
         </li>
+        <li> </i><span class="align-middle">
+            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                
+                    <a rel="alternate"  class="dropdown-item" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        {{ $properties['native'] }}
+                    </a> 
+                
+            @endforeach</span>
+        </li>
+        <li>
+          <div class="dropdown-divider"></div>
+        </li>
         <li>
         <form method="POST" action="{{ route('logout') }}">
             @csrf

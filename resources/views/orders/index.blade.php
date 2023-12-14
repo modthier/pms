@@ -1,17 +1,19 @@
 @extends('admin.layouts.sneat')
 
 @section('starter')
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
+    <div class="content-header mt-3">
+        <div class="container-fluid">
+          
+        <div  class="d-flex justify-content-between align-items-center">
+          <div>
             <h1 class="m-0 text-dark">Sales Report</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          <div>
            <button id="filter" class="btn btn-primary float-sm-right">Show Filters</button>
           </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+          </div>
+        </div>
+       
     </div>
     <!-- /.content-header -->
 
@@ -21,7 +23,7 @@
 <!-- Content Header (Page header) -->
 
   
-
+<section class="row mb-3">
  <section class="col-lg-5 filters">
     <div class="card">
       <div class="card-header">
@@ -48,7 +50,7 @@
               </div>
 
               <div class="form-group">
-                  <input type="submit" value="Search" class="btn btn-success">
+                  <input type="submit" value="Search" class="btn btn-success mt-2 mb-2">
               </div>
           </form>
        </div>
@@ -72,7 +74,7 @@
                 
 
             <div class="form-group">
-                  <input type="submit" value="Search" class="btn btn-success">
+                  <input type="submit" value="Search" class="btn btn-success mt-2 mb-2">
             </div>
           </form>
        </div>
@@ -96,13 +98,13 @@
                 
 
             <div class="form-group">
-                  <input type="submit" value="Search" class="btn btn-success">
+                  <input type="submit" value="Search" class="btn btn-success mt-2 mb-2">
             </div>
           </form>
        </div>
     </div>
  </section>
-
+  <div class="mt-3"></div>
 
  <section class="col-lg-12 filters">
     <div class="card">
@@ -140,13 +142,13 @@
                 
 
             <div class="form-group">
-                  <input type="submit" value="Search" class="btn btn-success">
+                  <input type="submit" value="Search" class="btn btn-success mt-2 mb-2">
             </div>
           </form>
        </div>
     </div>
  </section>
-
+ </section>
 
  @can('can_access')
  <div class="col-lg-12">

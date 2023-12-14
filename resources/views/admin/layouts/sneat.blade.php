@@ -94,6 +94,46 @@
         color: #495057;
       }
   </style>
+  <style type="text/css">
+    
+    .info {
+      display: none;
+    }
+
+    @media (min-width:910px) {
+      .info {
+         display: block;
+      }
+    }
+
+    .filters {
+      display: none;
+    }
+
+    .lang li a:first-child {
+      border-right: 1px solid white;
+    }
+
+    .lang li a:last-child {
+      border-left: 1px solid white;
+      padding-left: 5px;
+    }
+
+    .table-bordered td, .table-bordered th {
+      border: 2px solid #000000;
+    }
+
+    .barcode{
+      font-weight: bold;
+      height: 140px;
+      width: 198px;
+    }
+
+    .order_list input {
+        width:100px;
+    }
+
+</style>
   </head>
   <body>
     <!-- Layout wrapper -->
