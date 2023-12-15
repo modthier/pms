@@ -60,7 +60,7 @@
              </div>
                
              <div class="form-group">
-              <button  id="addItemByName" type="button" class="btn btn-info">{{ __('body.addItem') }}</button>
+              <button  id="addItemByName" type="button" class="btn btn-info mt-2">{{ __('body.addItem') }}</button>
              </div>
             
           </form>  
@@ -69,7 +69,7 @@
  </section>
 
    @if(session('errs'))
-  <section class="col-lg-12">
+  <section class="col-lg-12 mt-2">
 
     @foreach(session('errs') as $err)
     <div class="alert alert-danger" role="alert">
@@ -80,7 +80,7 @@
   </section>
   @endif
 
- <section class="col-lg-12">
+ <section class="col-lg-12 mt-2">
     <div class="card">    
     
       <form action="{{ route('DrugRequests.update',$orders->id) }}" method="post">

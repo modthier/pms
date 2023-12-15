@@ -56,7 +56,9 @@
 
     <div class="col-lg-3 col-md-3 col-sm-12">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="card bg-success">
+          <div class="card-body p-0">
+            <div class="small-box p-2">
               <div class="inner">
                 <h3>{{ $stockCount }}</h3>
 
@@ -64,13 +66,17 @@
               </div>
               
             </div>
+            </div>
+   </div>
    </div>
 
 
    @can('can_show')
    <div class="col-lg-3 col-md-3 col-sm-12">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="card bg-danger">
+          <div class="card-body p-0">
+            <div class="small-box p-2">
               <div class="inner">
                 <h3>{{ $soldCount }}</h3>
 
@@ -78,6 +84,8 @@
               </div>
               
             </div>
+            </div>
+   </div>
    </div>
    @endcan
    

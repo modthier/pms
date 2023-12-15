@@ -44,16 +44,18 @@
               </div>
 
               <div class="form-group">
-                  <input type="submit" value="Search" class="btn btn-success">
+                  <input type="submit" value="Search" class="btn btn-success mt-2">
               </div>
           </form>
        </div>
     </div>
  </section>
 
- <div class="col-lg-6 col-md-6 col-sm-12">
+ <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
   <!-- small box -->
-      <div class="small-box bg-white">
+      <div class="card bg-white">
+        <div class="card-body">
+        <div class="small-box">
       <div class="inner">
         <strong>Overall Summry</strong>
         <hr>
@@ -76,10 +78,14 @@
       </div>
 
      </div>
+        </div>
+      </div>
 </div>
 
-<div class="col-lg-6 col-md-6 col-sm-12">
+<div class="col-lg-6 col-md-6 col-sm-12 mt-2">
   <!-- small box -->
+  <div class="card bg-white">
+        <div class="card-body">
       <div class="small-box bg-white">
       <div class="inner">
         <strong>Summry Today</strong>
@@ -101,10 +107,14 @@
       </div>
 
      </div>
+     </div>
+      </div>
 </div>
 
-<div class="col-lg-6 col-md-6 col-sm-12">
+<div class="col-lg-6 col-md-6 col-sm-12 mt-2">
   <!-- small box -->
+  <div class="card bg-white">
+        <div class="card-body">
       <div class="small-box bg-white">
       <div class="inner">
         <strong>Summry This Week</strong>
@@ -127,10 +137,14 @@
       </div>
 
      </div>
+     </div>
+      </div>
 </div>
 
-<div class="col-lg-6 col-md-6 col-sm-12">
+<div class="col-lg-6 col-md-6 col-sm-12 mt-2">
   <!-- small box -->
+  <div class="card bg-white">
+        <div class="card-body">
       <div class="small-box bg-white">
       <div class="inner">
         <strong>Summry This Month</strong>
@@ -153,6 +167,8 @@
       </div>
 
      </div>
+     </div>
+      </div>
 </div>
 
  

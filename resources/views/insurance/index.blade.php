@@ -34,6 +34,7 @@
                     
                     <th>Name</th>
                     <th>Deduction Rate</th>
+                    <th>Price Value</th>
                     <th>Actions</th>
                 </thead>
 

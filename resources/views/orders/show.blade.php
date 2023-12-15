@@ -83,7 +83,7 @@
 
 
 
-<section class="col-sm-4 col-md-4 col-lg-4">
+<section class="col-sm-4 col-md-4 col-lg-4 mt-2">
     <div class="card">
       <div class="card-header">
        Print Area

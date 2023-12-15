@@ -47,7 +47,7 @@
               </div>
 
               <div class="form-group">
-                  <input type="submit" value="Search" class="btn btn-success">
+                  <input type="submit" value="Search" class="btn btn-success mt-2">
               </div>
           </form>
        </div>
@@ -72,7 +72,7 @@
                 
 
             <div class="form-group">
-                  <input type="submit" value="Search" class="btn btn-success">
+                  <input type="submit" value="Search" class="btn btn-success mt-2">
             </div>
           </form>
        </div>

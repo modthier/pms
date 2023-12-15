@@ -21,6 +21,8 @@
     
     <div class="col-lg-6 col-md-6 col-sm-12">
             <!-- small box -->
+            <div class="card bg-white">
+        <div class="card-body">
         <div class="small-box bg-white">
           <div class="inner">
             <h3>{{ $expiredStocks->count() }}</h3>
@@ -29,10 +31,13 @@
           </div>
           
         </div>
+        </div>
+    </div>
     </div>
     
     <div class="col-lg-6 col-md-6 col-sm-12">
-            <!-- small box -->
+    <div class="card bg-white">
+        <div class="card-body">
         <div class="small-box bg-white">
           <div class="inner">
             <h3>
@@ -45,10 +50,12 @@
           </div>
           
         </div>
+        </div>
+    </div>
     </div>
    
 
-   <section class="col-lg-12">
+   <section class="col-lg-12 mt-2">
         <div class="card">
             <div class="card-header">
                 <div class="card-title">

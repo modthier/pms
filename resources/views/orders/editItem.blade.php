@@ -22,7 +22,7 @@
 
 
    @if(session('errs'))
-  <section class="col-lg-12">
+  <section class="col-lg-12 mt-2">
 
     @foreach(session('errs') as $err)
     <div class="alert alert-danger" role="alert">
@@ -70,7 +70,7 @@
       </div>
   </section>
 
- <section class="col-lg-12">
+ <section class="col-lg-12 mt-2">
     <div class="card">    
     
       <form action="{{ route('drugOrder.updateItem',$order->id) }}" method="post">

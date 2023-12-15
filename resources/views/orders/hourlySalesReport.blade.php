@@ -54,16 +54,18 @@
                 
 
             <div class="form-group">
-                  <input type="submit" value="Search" class="btn btn-success">
+                  <input type="submit" value="Search" class="btn btn-success mt-2">
             </div>
           </form>
        </div>
     </div>
  </section>
 
- <div class="col-lg-12">
+ <div class="col-lg-12 mt-2">
             <!-- small box -->
-        <div class="small-box bg-white">
+        <div class="card bg-white">
+          <div class="card-body">
+          <div class="small-box">
           <div class="inner">
             <h3>
               @if($total)
@@ -74,6 +76,8 @@
             <p><strong>Hourly Total</strong></p>
           </div>
           
+        </div>
+          </div>
         </div>
  </div>
 

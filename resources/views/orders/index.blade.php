@@ -151,7 +151,7 @@
  </section>
 
  @can('can_access')
- <div class="col-lg-12">
+ <div class="col-lg-12 mb-2">
   <div class="card">
     <div class="card-body">
       <h5 class="mb-3"> Total Sales My Payment Method </h5>
@@ -177,7 +177,9 @@
 
  <div class="col-lg-4 col-md-4 col-sm-12">
             <!-- small box -->
-        <div class="small-box bg-white">
+        <div class="card bg-white">
+          <div class="card-body">
+          <div class="small-box">
           <div class="inner">
             <h5>
               @if($total_today)
@@ -189,13 +191,17 @@
           </div>
           
         </div>
+          </div>
+        </div>
  </div>
 
    
 @can('can_show')         
  <div class="col-lg-4 col-md-4 col-sm-12">
             <!-- small box -->
-        <div class="small-box bg-white">
+        <div class="card bg-white">
+          <div class="card-body">
+          <div class="small-box">
           <div class="inner">
             <h5>
               @if($total_week)
@@ -209,11 +215,15 @@
           </div>
           
         </div>
+          </div>
+        </div>
  </div>
 
  <div class="col-lg-4 col-md-4 col-sm-12">
             <!-- small box -->
-        <div class="small-box bg-white">
+        <div class="card  bg-white">
+          <div class="card-body">
+          <div class="small-box">
           <div class="inner">
             <h5>
               @if($total_month)
@@ -228,10 +238,12 @@
           
           
         </div>
+          </div>
+        </div>
  </div>
  @endcan
 
- <section class="col-lg-12">
+ <section class="col-lg-12 mt-2">
     <div class="card">
         <div class="card-header">
             <div class="card-title">

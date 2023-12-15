@@ -46,7 +46,7 @@
               </div>
 
               <div class="form-group">
-                  <input type="submit" value="Search" class="btn btn-success">
+                  <input type="submit" value="Search" class="btn btn-success mt-2">
               </div>
           </form>
        </div>
@@ -70,7 +70,7 @@
                 
 
             <div class="form-group">
-                  <input type="submit" value="Search" class="btn btn-success">
+                  <input type="submit" value="Search" class="btn btn-success mt-2">
             </div>
           </form>
        </div>
@@ -94,14 +94,14 @@
                 
 
             <div class="form-group">
-                  <input type="submit" value="Search" class="btn btn-success">
+                  <input type="submit" value="Search" class="btn btn-success mt-2">
             </div>
           </form>
        </div>
     </div>
  </section>
  
- <section class="col-lg-12">
+ <section class="col-lg-12 mt-2">
     <div class="card">
        <div class="card-header">
             <div class="card-title">
