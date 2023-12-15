@@ -29,7 +29,7 @@
                       <div class="input-group">
                         <input class="form-control" id="input2-group2" type="search" name="q"  placeholder="{{ __('body.search') }}">
                         <span class="input-group-append">
-                          <button class="btn btn-primary" type="submit">{{ __('body.search') }}</button>
+                          <button class="btn btn-primary " type="submit">{{ __('body.search') }}</button>
                         </span>
                       </div>
 
@@ -41,7 +41,7 @@
 </section>
 
 
-<section class="col-lg-12">
+<section class="col-lg-12 mt-2 ">
         <div class="card">
             <div class="card-body">
               <form  action="{{ route('stocks.check') }}" method="get">
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Check" class="btn btn-success">
+                    <input type="submit" value="Check" class="btn btn-success mt-2 ">
                 </div>
            </form>
          </div>
@@ -89,9 +89,11 @@
       
 </section>
     
-<div class="col-lg-12 col-md-12 col-sm-12">
+<div class="col-lg-12 col-md-12 col-sm-12  mt-2 mb-2">
                 <!-- small box -->
-                <div class="small-box bg-white box-shadow">
+                <div class="card bg-white box-shadow">
+                    <div class="card-body">
+                    <div class="small-box ">
                   <div class="inner">
                     <h3>
                       @if($total_price->total_price)
@@ -102,6 +104,8 @@
                     <p><strong> {{ __('body.wholePrice') }} </strong></p>
                   </div>
                   
+                </div>
+                    </div>
                 </div>
            </div>
     <section class="col-lg-12">
@@ -153,10 +157,10 @@
                             <td>{{ $stock->quantity_per_unit }}</td>
                             <td>{{ number_format($stock->quantity_per_unit *  $stock->selling_price,2) }}</td>
                             <td>{{ $stock->exp }}</td>
-                            <td>
-                                <a href="{{ route('stocks.showAddToStockForm',$stock->id) }}" class="btn btn-primary btn-sm  mr-1 mb-2">{{ __('body.addToStock') }}</a>
+                            <td class="d-flex flex-column justify-content-around align-items-center">
+                                <a class="btn btn-primary btn-sm  mr-1 mb-2" href="{{ route('stocks.showAddToStockForm',$stock->id) }}" >{{ __('body.addToStock') }}</a>
 
-                                <a href="{{ route('expiredStock.moveToExpiry',$stock->id) }}" class="btn btn-warning btn-sm mb-2">{{ __('body.moveToExpiry') }}</a>
+                                <a href="{{ route('expiredStock.moveToExpiry',$stock->id) }}" class="btn btn-warning btn-sm btn-sm mb-2">{{ __('body.moveToExpiry') }}</a>
                                 <a href="{{ route('stocks.edit',$stock->id) }}" class="btn btn-success float-left btn-sm mr-1">{{ __('body.edit') }}</a>
 
 
@@ -165,7 +169,7 @@
                                   @csrf
 
                                   {{ method_field('DELETE') }}
-                                  <button class="btn btn-danger btn-sm" onclick="event.preventDefault();
+                                  <button class="btn btn-danger btn-sm mt-2" onclick="event.preventDefault();
                                       var r = confirm('are you sure ?');
                                       if (r == true) {document.getElementById('delete_stock_{{ $stock->id }}').submit();}">{{ __('body.delete') }}</button>
                   

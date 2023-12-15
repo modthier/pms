@@ -278,13 +278,13 @@
                       @endif
                     </td>
                     <td>{{ $order->created_at->format('d/m/Y h:i:s A') }}</td>
-                    <td>
+                    <td class="d-flex justify-content-between align-items-center">
                      
-                      <a href="{{ route('DrugRequests.show',$order->id) }}" class="btn btn-success float-left mr-1 mb-1"><span class="fas fa-book-open"></span></a>
+                      <a href="{{ route('DrugRequests.show',$order->id) }}" class="btn btn-success btn-sm float-left mr-1 mb-1"><span class="fas fa-book-open"></span></a>
                       
 
                       
-                      <a href="{{ route('DrugRequests.edit',$order->id)  }}" class="btn btn-primary float-left mr-1 mb-1"><span class="fas fa-edit"></span></a>
+                      <a href="{{ route('DrugRequests.edit',$order->id)  }}" class="btn btn-primary btn-sm float-left mr-1 mb-1"><span class="fas fa-edit"></span></a>
                      
 
                       @can('can_show')
@@ -294,14 +294,14 @@
 
                         {{ method_field('DELETE') }}
 
-                         <button type="submit" class="btn btn-danger mb-1" onclick="event.preventDefault();
+                         <button type="submit" class="btn btn-danger mb-1 btn-sm" onclick="event.preventDefault();
                                       var r = confirm('are you sure ?');
                                       if (r == true) {document.getElementById('delete_order_{{ $order->id }}').submit();}"><span class="fas fa-trash-alt"></span></button>
                       </form>
                       @endcan
 
 
-                       <a href="{{ route('ReturnedItems.returnOrder',$order->id)  }}" class="btn btn-warning float-left mr-1 mb-1"><span class="fas fa-arrow-circle-left"></span></a>
+                       <a href="{{ route('ReturnedItems.returnOrder',$order->id)  }}" class="btn btn-warning btn-sm float-left mr-1 mb-1"><span class="fas fa-arrow-circle-left"></span></a>
                       
 
                     </td>

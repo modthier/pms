@@ -62,7 +62,7 @@
              </div>
                
              <div class="form-group">
-              <button  id="ItemByName" type="button" class="btn btn-info">{{ __('body.addItem') }}</button>
+              <button  id="ItemByName" type="button" class="btn btn-info mt-2 ">{{ __('body.addItem') }}</button>
              </div>
             
           </form>  
@@ -82,7 +82,7 @@
   </section>
   @endif
 
- <section class="col-lg-12">
+ <section class="col-lg-12 mt-2 ">
     <div class="card">    
      
       <form action="{{ route('insurancePointOfSale.store') }}" method="post">

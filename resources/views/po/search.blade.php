@@ -18,7 +18,7 @@
 @section('content')
     <!-- Content Header (Page header) -->
 
-    <section class="col-lg-12">
+    <section class="col-lg-12 mt-2 ">
         <div class="card">
            
             <div class="card-body table-responsive p-0">

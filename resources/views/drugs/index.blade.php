@@ -39,7 +39,7 @@
         </div>
 </section>
 
- <section class="col-lg-12">
+ <section class="col-lg-12  mt-2 ">
     <div class="card">
         <div class="card-header">
           <div class="card-title">
@@ -80,7 +80,7 @@
                     @else 
                       <td>{{ __('body.no') }}</td>
                     @endif
-                    <td>
+                    <td  class="d-flex justify-content-between align-items-center">
                       @can('can_show')
                       <a href="{{ route('drugs.edit',$drug->id) }}" class="btn btn-success float-left mr-1"><span class="fas fa-edit"></span></a>
                       @endcan

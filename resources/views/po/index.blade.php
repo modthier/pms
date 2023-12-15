@@ -18,7 +18,7 @@
 @section('content')
     <!-- Content Header (Page header) -->
 
-    <section class="col-lg-12">
+    <section class="col-lg-12  mb-2 ">
     <div class="card">
             <div class="card-body">
                 <div class="form-group row">
@@ -41,7 +41,9 @@
 
 <div class="col-lg-6 col-md-6 col-sm-12">
                 <!-- small box -->
-    <div class="small-box bg-white box-shadow">
+    <div class="card bg-white box-shadow">
+        <div class="card-body">
+        <div class="small-box">
       <div class="inner">
         @if($total_price)
         <h3>{{ number_format($total_price,2) }} </h3>
@@ -52,11 +54,15 @@
       </div>
       
     </div>
+        </div>
+    </div>
 </div>
 
 <div class="col-lg-6 col-md-6 col-sm-12">
                 <!-- small box -->
-    <div class="small-box bg-white box-shadow">
+    <div class="card bg-white box-shadow">
+        <div class="card-body">
+        <div class="small-box">
       <div class="inner">
         @if($sum)
         <h3>{{ number_format($sum,2) }}</h3>
@@ -67,10 +73,12 @@
       </div>
       
     </div>
+        </div>
+    </div>
 </div>
 
     
-    <section class="col-lg-12">
+    <section class="col-lg-12 mt-2 ">
         <div class="card">
             <div class="card-header">
                  <a href="{{ route('po.export') }}" class="btn btn-success">{{ __('body.exportToExcel') }}</a>
